@@ -1,0 +1,48 @@
+name: fluttertest0315
+description: A new Flutter application.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # 国际化
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  # 本机文件夹读取
+  path_provider: ^1.4.0
+  # pdf阅读
+  flutter_full_pdf_viewer: ^1.0.1
+
+  # 屏幕适配器
+  flutter_screenutil: ^0.4.2
+  # 网络图片缓存
+  cached_network_image: ^1.1.3
+  flutter_cache_manager: ^1.1.3
+  # 轮播图
+  flutter_swiper: ^1.1.6
+  # 本地缓存localStorage
+  shared_preferences: ^0.5.3+1
+
+  # toast弹出提示信息
+  fluttertoast: ^3.1.3
+  # 更多的图标
+  icons_helper: ^1.0.3
+  # 特殊的listView
+  easy_listview: ^0.1.3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+
