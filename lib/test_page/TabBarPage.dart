@@ -22,7 +22,7 @@ class TabBarState extends State<TabBarPage>
   // 生命周期函数:初始化时调用
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 6);
+    _tabController = new TabController(vsync: this, length: 5);
     // controller增加监听事件
     _tabController.addListener(() {
       print("_tabController.index======" + _tabController.index.toString());
@@ -42,7 +42,6 @@ class TabBarState extends State<TabBarPage>
             Text('imageListView'),
             Text('轮播图'),
             Text('等宽'),
-            Text('等高'),
           ],
         ),
       ),
@@ -54,7 +53,6 @@ class TabBarState extends State<TabBarPage>
           _imageListView(),
           _swiperWidget(),
           _widthWidget(),
-          _heightWidget(),
         ],
       ),
     );
@@ -244,28 +242,6 @@ class TabBarState extends State<TabBarPage>
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _heightWidget() {
-    return IntrinsicHeight(
-      child: Column(
-        children: <Widget>[
-          Container(
-            // A fixed-height child.
-            color: const Color(0xff808000),
-            height: 120.0,
-          ),
-          Expanded(
-            // A flexible child that will grow to fit the viewport but
-            // still be at least as big as necessary to fit its contents.
-            child: Container(
-              color: const Color(0xff800000),
-              height: 120.0,
-            ),
-          ),
-        ],
       ),
     );
   }
