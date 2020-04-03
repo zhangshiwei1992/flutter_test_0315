@@ -5,9 +5,15 @@ import 'package:flutter/services.dart';
 import 'package:fluttertest0315/tabs/NotFoundPage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'constant/EnvInfo.dart';
 import 'routes/routes.dart';
 
-void main() => runApp(MyApp());
+
+void main() {
+  //设定运行环境的环境变量
+  EnvInfo.env = Env.DEV;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
