@@ -133,6 +133,157 @@ class PdfTestPageState extends State<PdfTestPage> {
                 );
               },
             ),
+            RaisedButton(
+              child: Text('Expanded'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/ExpandedPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('Stack层叠'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/StackPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('Wrap流式布局'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/WrapPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('ProductPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/ProductPage',
+                    arguments: "传参-商品的title");
+              },
+            ),
+            RaisedButton(
+              child: Text('AppBarTest'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/AppBarTest');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                Navigator.pushNamed(context, '/MenuPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('新闻AppBarPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/AppBarPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('TabBarController'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/TabBarController');
+              },
+            ),
+            RaisedButton(
+              child: Text('button'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/ButtonPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('TextFieldPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/TextFieldPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('CheckBoxPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/CheckBoxPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('RadioPage演示'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/RadioPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('SwitchPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/SwitchPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('FormDemoPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/FormDemoPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('时间组件'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/TimePage');
+              },
+            ),
+            RaisedButton(
+              child: Text('InkWellPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/InkWellPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('GestureDetectorPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/GestureDetectorPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('HttpTestPage'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/HttpTestPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('下拉框'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/DropDownPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('轮播图'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/SwiperPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('DialogPage弹出对话框'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/DialogPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('下拉刷新上拉分页加载更多'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/RefreshIndicatorPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('解析html'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/HtmlResolvePage');
+              },
+            ),
+            RaisedButton(
+              child: Text('webView解析html'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/WebViewPage');
+              },
+            ),
+            RaisedButton(
+              child: Text('获取设备信息'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/DeviceInfoPage');
+              },
+            ),
           ],
         ),
       ),

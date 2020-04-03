@@ -43,7 +43,9 @@ class PicPreView extends Dialog {
                 Navigator.pop(context);
               },
               child: CachedNetworkImage(
-                imageUrl: picList[index],
+                imageUrl: picList[index].contains(".pdf")
+                    ? "https://public-aibiyag.oss-cn-shanghai.aliyuncs.com/app/common/pdf_sign.png"
+                    : picList[index],
                 fit: BoxFit.fitWidth,
                 placeholder: (context, url) => CircularProgressIndicator(),
                 errorWidget: (context, url, error) => Icon(Icons.error),
