@@ -7,6 +7,7 @@ import 'package:fluttertest0315/test_page/ListViewPage2.dart';
 import 'package:fluttertest0315/test_page/MenuOverlayPage.dart';
 import 'package:fluttertest0315/test_page/PopupMenuButtonPage.dart';
 import 'package:fluttertest0315/test_page/SliverPersistentHeader.dart';
+import 'package:fluttertest0315/test_page/TabBarPage.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
 
 class HomePage extends StatefulWidget {
@@ -144,6 +145,15 @@ class HomePageWidget extends State<HomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/ImageGridViewPage',
                       arguments: '传参-ImageGridViewPage');
+                },
+              ),
+              RaisedButton(
+                child: Text('TabBarPage'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TabBarPage()),
+                  );
                 },
               ),
               RaisedButton(

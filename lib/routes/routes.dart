@@ -20,6 +20,7 @@ import 'package:fluttertest0315/test_page/ImageListViewPage.dart';
 import 'package:fluttertest0315/test_page/InkWellPage.dart';
 import 'package:fluttertest0315/test_page/LoginPage.dart';
 import 'package:fluttertest0315/test_page/MenuPage.dart';
+import 'package:fluttertest0315/test_page/PdfTestPage.dart';
 import 'package:fluttertest0315/test_page/ProductInfoPage.dart';
 import 'package:fluttertest0315/test_page/ProductPage.dart';
 import 'package:fluttertest0315/test_page/RadioPage.dart';
@@ -73,6 +74,7 @@ final routes = {
   '/AppBarTest': (context) => AppBarTest(),
   '/MenuPage': (context) => MenuPage(),
   '/AppBarPage': (context) => AppBarPage(),
+  '/PdfTestPage': (context) => PdfTestPage(),
   '/TabBarController': (context) => TabBarController(),
   '/UserInfo': (context) => UserInfo(),
   '/ButtonPage': (context) => ButtonPage(),

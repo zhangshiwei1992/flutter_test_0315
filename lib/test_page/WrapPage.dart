@@ -36,7 +36,7 @@ class MyButtonState extends State<WrapBody> {
       padding: EdgeInsets.all(10),
       child: Wrap(
         // 主轴 X轴的间距
-        spacing: 10,
+        spacing: 20,
         // Y轴的间距
         runSpacing: 8,
         children: generateWordPairs().take(30).map((value) {

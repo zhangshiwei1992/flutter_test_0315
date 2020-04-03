@@ -21,8 +21,12 @@ class ListViewState extends State<RowPage> {
       body: Row(
         children: <Widget>[
           Expanded(
-            child: Text(
-                '111111111111111111111111111111111111111111111111111111111111'),
+            flex: 1,
+            child: Text('11111111 11111111111111111111'),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text('aaaaaaaaaa'),
           ),
         ],
       ),

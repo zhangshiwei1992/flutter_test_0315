@@ -133,13 +133,13 @@ class TabBarState extends State<TabBarPage>
           margin: EdgeInsets.only(bottom: 20.0, right: 20.0),
 
           /// 分页指示器样式: dots , fraction
-//       builder: SwiperPagination.fraction,
+//     builder: SwiperPagination.fraction,
           /// 重新定义 DotSwiperPaginationBuilder , FractionPaginationBuilder
           builder: FractionPaginationBuilder(
             // 未到图片标识
             color: Colors.white,
             // 已到图片标识
-            activeColor: Colors.red,
+            activeColor: Colors.blue,
           ),
         ),
 

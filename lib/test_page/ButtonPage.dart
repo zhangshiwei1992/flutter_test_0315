@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ButtonPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -25,18 +24,13 @@ class ButtonState extends State<ButtonPage> {
         ),
         child: FloatingActionButton(
           backgroundColor: Colors.yellow,
-          child: IconButton(
-            icon: Icon(
-              Icons.add,
-              color: Colors.black,
-              size: 35,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
+          child: Icon(
+            Icons.add,
+            color: Colors.black,
+            size: 35,
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+//            Navigator.of(context).pop();
           },
         ),
       ),
@@ -103,7 +97,7 @@ class MyButtonBody extends StatelessWidget {
               // 字体颜色
               textColor: Colors.white,
               // 阴影效果
-              elevation: 20,
+              elevation: 8,
               child: Text('有颜色有阴影RaisedButton按钮'),
               onPressed: () {
                 print('点击------RaisedButton按钮');
@@ -159,10 +153,10 @@ class MyButtonBody extends StatelessWidget {
               icon: Icon(Icons.search),
               label: Text('图标按钮'),
               // 禁用 置灰
-//    onPressed:null;
-              onPressed: () {
-                print('点击------RaisedButton按钮');
-              },
+              onPressed: null,
+//              onPressed: () {
+//                print('点击------RaisedButton按钮');
+//              },
             ),
           ],
         ),

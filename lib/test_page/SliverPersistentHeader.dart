@@ -20,7 +20,7 @@ class NestedScrollViewPageState extends State<NestedScrollViewPage> {
     return new DefaultTabController(
         length: tabTitle.length,
         child: Scaffold(
-          body: new NestedScrollView(
+          body: NestedScrollView(
             headerSliverBuilder: (context, bool) {
               return [
                 SliverAppBar(
@@ -37,9 +37,9 @@ class NestedScrollViewPageState extends State<NestedScrollViewPage> {
                         fit: BoxFit.cover,
                       )),
                 ),
-                new SliverPersistentHeader(
+                SliverPersistentHeader(
                   delegate: new SliverTabBarDelegate(
-                    new TabBar(
+                    TabBar(
                       tabs: tabTitle.map((f) => Tab(text: f)).toList(),
                       indicatorColor: Colors.red,
                       unselectedLabelColor: Colors.black,
@@ -53,10 +53,12 @@ class NestedScrollViewPageState extends State<NestedScrollViewPage> {
             },
             body: TabBarView(
               children: tabTitle
-                  .map((s) => ListView.builder(
-                itemBuilder: (context, int) => Text("123"),
-                itemCount: 50,
-              ))
+                  .map(
+                    (s) => ListView.builder(
+                      itemBuilder: (context, int) => Text("123"),
+                      itemCount: 50,
+                    ),
+                  )
                   .toList(),
             ),
           ),

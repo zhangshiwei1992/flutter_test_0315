@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertest0315/tabs/NotFoundPage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -9,6 +12,11 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // 添加如下代码，使状态栏透明
+    if (Platform.isAndroid) {
+      var style = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+      SystemChrome.setSystemUIOverlayStyle(style);
+    }
     return MaterialApp(
       title: 'Flutter Demo',
 

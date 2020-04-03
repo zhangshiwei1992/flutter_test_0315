@@ -40,7 +40,7 @@ class TabsState extends State<FirstPage> {
           BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('我')),
         ],
         // 图标大小
-        iconSize: 35.0,
+        iconSize: 30.0,
         // 当前被选中的是第几个(从0开始计算)
         currentIndex: this._currentIndex,
         // 选中的颜色

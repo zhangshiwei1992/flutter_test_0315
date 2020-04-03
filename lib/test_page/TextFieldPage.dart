@@ -34,7 +34,7 @@ class TextFieldState extends State<TextFieldPage> {
               controller: _userName,
               decoration: InputDecoration(
                 labelText: '请输入用户名',
-                border: OutlineInputBorder(),
+                border: InputBorder.none,
               ),
               onChanged: (value) {
                 setState(() {

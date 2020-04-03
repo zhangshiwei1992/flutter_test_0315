@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertest0315/constant/listData.dart';
+import 'package:fluttertest0315/utils/ScreenAdaper.dart';
 
 class CardPage extends StatelessWidget {
   @override
@@ -16,6 +17,39 @@ class CardPage extends StatelessWidget {
         title: Text('20190720CardTest002'),
       ),
       body: CardBody(),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.all(ScreenAdapter.height(10)),
+                  alignment: Alignment.center,
+                  color: Colors.red,
+                  child: Text(
+                    '应付金额:1000',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                flex: 2,
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.all(ScreenAdapter.height(10)),
+                  color: Colors.blue,
+                  child: Text(
+                    '确认',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -27,7 +61,7 @@ class CardBody extends StatelessWidget {
       children: <Widget>[
         Column(
           children: listData.map((value) {
-            String imageName = value['imageName'];
+            String imageName = value['filePath'];
             return Container(
               margin: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
@@ -41,15 +75,15 @@ class CardBody extends StatelessWidget {
                   children: <Widget>[
                     AspectRatio(
                       aspectRatio: 4 / 3,
-                      child: Image.asset(
-                        'images/$imageName',
+                      child: Image.network(
+                        imageName,
                         fit: BoxFit.cover,
                       ),
                     ),
                     ListTile(
                       leading: ClipOval(
-                        child: Image.asset(
-                          'images/$imageName',
+                        child: Image.network(
+                          imageName,
                         ),
                       ),
                       title: Text(value['title']),

@@ -57,7 +57,7 @@ class DialogState extends State<DialogPage> {
   _alertDialog() {
     showDialog(
       // 表示点击灰色背景的时候是否消失弹出框
-      barrierDismissible: false,
+      barrierDismissible: true,
       context: context,
       builder: (context) {
         return AlertDialog(

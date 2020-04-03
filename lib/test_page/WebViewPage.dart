@@ -17,7 +17,7 @@ class WebViewState extends State<WebViewPage> {
         children: <Widget>[
           Expanded(
             child: InAppWebView(
-              initialUrl: "https://m.kuaidi100.com/result.jsp?nu=111111111",
+              initialUrl: "https://www.baidu.com",
             ),
           )
         ],
