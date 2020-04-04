@@ -10,7 +10,7 @@ class EnvInfo {
   static String get apiHost {
     switch (env) {
       case Env.PROD:
-        return "http://biz.miaogoche.cn";
+        return "http://biz-dev.miaogoche.cn";
       case Env.DEV:
         return "http://biz-dev.miaogoche.cn";
       case Env.LOCAL:

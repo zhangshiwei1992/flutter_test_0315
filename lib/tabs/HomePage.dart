@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertest0315/constant/FilePathList.dart';
 import 'package:fluttertest0315/image_pdf/app_image_show.dart';
 import 'package:fluttertest0315/test_page/JumpPage.dart';
-import 'package:fluttertest0315/test_page/ListViewPage.dart';
-import 'package:fluttertest0315/test_page/ListViewPage2.dart';
 import 'package:fluttertest0315/test_page/MenuOverlayPage.dart';
 import 'package:fluttertest0315/test_page/PopupMenuButtonPage.dart';
 import 'package:fluttertest0315/test_page/SliverPersistentHeader.dart';
-import 'package:fluttertest0315/test_page/TabBarPage.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
 
 class HomePage extends StatefulWidget {
@@ -75,24 +72,6 @@ class HomePageWidget extends State<HomePage> {
                 },
               ),
               RaisedButton(
-                child: Text('ListViewPage'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ListViewPage()),
-                  );
-                },
-              ),
-              RaisedButton(
-                child: Text('ListViewPage2'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ListViewPage2()),
-                  );
-                },
-              ),
-              RaisedButton(
                 child: Text('隐藏头部'),
                 onPressed: () {
                   Navigator.push(
@@ -130,33 +109,6 @@ class HomePageWidget extends State<HomePage> {
                 },
               ),
               RaisedButton(
-                child: Text(
-                  'ImageListViewPage',
-                  style: TextStyle(fontSize: 18, color: Colors.red),
-                ),
-                onPressed: () {
-                  // 命名路由跳转
-                  Navigator.pushNamed(context, '/ImageListViewPage',
-                      arguments: '1234567');
-                },
-              ),
-              RaisedButton(
-                child: Text('ImageGridView'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/ImageGridViewPage',
-                      arguments: '传参-ImageGridViewPage');
-                },
-              ),
-              RaisedButton(
-                child: Text('TabBarPage'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TabBarPage()),
-                  );
-                },
-              ),
-              RaisedButton(
                 child: Text('Expanded'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/ExpandedPage');
@@ -169,34 +121,16 @@ class HomePageWidget extends State<HomePage> {
                 },
               ),
               RaisedButton(
-                child: Text('Wrap流式布局'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/WrapPage');
-                },
-              ),
-              RaisedButton(
                 child: Text('ProductPage'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/ProductPage',
                       arguments: "传参-商品的title");
                 },
               ),
-              RaisedButton(
-                child: Text('AppBarTest'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/AppBarTest');
-                },
-              ),
               IconButton(
                 icon: Icon(Icons.menu),
                 onPressed: () {
                   Navigator.pushNamed(context, '/MenuPage');
-                },
-              ),
-              RaisedButton(
-                child: Text('新闻AppBarPage'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/AppBarPage');
                 },
               ),
               RaisedButton(
