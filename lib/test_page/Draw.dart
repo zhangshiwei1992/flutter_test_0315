@@ -16,7 +16,7 @@ class MyDraw extends StatelessWidget {
 //                      // 背景图片
 //                      image: DecorationImage(
 //                        image: NetworkImage(
-//                            'http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000017_GPS_O_15638127740000000741_0.png?Expires=4719486397&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=TB6sctRhQnUltL1qy6tOPEbvavE%3D'),
+//                            "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg"),
 //                        fit: BoxFit.cover,
 //                      ),
 //                    ),
@@ -28,23 +28,23 @@ class MyDraw extends StatelessWidget {
                       style: TextStyle(color: Colors.black)),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        'http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000017_GPS_O_15638127740000000741_0.png?Expires=4719486397&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=TB6sctRhQnUltL1qy6tOPEbvavE%3D'),
+                        "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg"),
                   ),
                   decoration: BoxDecoration(
                     // 背景图片
                     image: DecorationImage(
                       image: NetworkImage(
-                          'http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000027_V15637857830000002549_0.png?Expires=4719486988&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=VqVKTd%2B8Ojh6EuQhRaKdXR0v5Nw%3D'),
+                          "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),
                   otherAccountsPictures: <Widget>[
                     Image.network(
-                        'http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000027_V15637857830000002549_0.png?Expires=4719487151&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=mBEMULoAq2xGWIiLm7EzRpgzHLE%3D'),
+                        "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg"),
                     Image.network(
-                        'http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000027_V15637857830000002549_0.png?Expires=4719487151&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=mBEMULoAq2xGWIiLm7EzRpgzHLE%3D'),
+                        "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg"),
                     Image.network(
-                        'http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000027_V15637857830000002549_0.png?Expires=4719487151&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=mBEMULoAq2xGWIiLm7EzRpgzHLE%3D'),
+                        "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg"),
                   ],
                 ),
               )

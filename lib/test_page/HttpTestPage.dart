@@ -127,7 +127,7 @@ class HttpState extends State<HttpTestPage> {
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
             ),
             child: Image.network(
-              "http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000027_V15637857830000002549_0.png?Expires=4719487151&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=mBEMULoAq2xGWIiLm7EzRpgzHLE%3D",
+              "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg",
               fit: BoxFit.cover,
             ),
           ),

@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
       // 设置图片为圆形
       child: ClipOval(
         child: Image.network(
-          "http://biz-oss-dev.miaogoche.cn/zulin/bizImage/F_FC15302410810000000017_GPS_O_15638127740000000741_0.png?Expires=4719486397&OSSAccessKeyId=LTAIFVdn88UX5oys&Signature=TB6sctRhQnUltL1qy6tOPEbvavE%3D",
+          "http://img5.mtime.cn/mt/2019/02/21/095918.47882172_270X405X4.jpg",
           height: ScreenAdapter.width(200),
           width: ScreenAdapter.width(200),
           fit: BoxFit.cover,
