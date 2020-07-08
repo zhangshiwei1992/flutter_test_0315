@@ -37,6 +37,8 @@ import 'package:fluttertest0315/test_page/VehicleBrandPage.dart';
 import 'package:fluttertest0315/test_page/VehicleVendorPage.dart';
 import 'package:fluttertest0315/test_page/WebViewPage.dart';
 import 'package:fluttertest0315/tree/TreeMenuPage.dart';
+import 'package:fluttertest0315/test_page/VideoPage.dart';
+import 'package:fluttertest0315/test_page/TransferPage.dart';
 
 final routes = {
   "/": (context) => FirstPage(),
@@ -83,6 +85,8 @@ final routes = {
   '/VehicleVendorPage': (context, {arguments}) =>
       VehicleVendorPage(arguments: arguments),
   '/WebViewPage': (context) => WebViewPage(),
+  '/VideoPage': (context) => VideoPage(),
+  '/TransferPage': (context) => TransferPage(),
 };
 
 var myOnGenerateRoute = (RouteSettings settings) {

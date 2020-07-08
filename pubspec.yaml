@@ -45,6 +45,9 @@ dependencies:
   flutter_html: ^0.11.0
   # webView解析html
   flutter_inappbrowser: ^1.2.1
+  # 视频播放
+  video_player: ^0.10.2
+  chewie: ^0.9.8+1
 
 
 dev_dependencies:
