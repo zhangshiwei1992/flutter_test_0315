@@ -31,6 +31,12 @@ class TransferPageState extends State<TransferPage> {
     targetList.add(transferObject4);
     targetList.add(transferObject5);
     targetList.add(transferObject6);
+
+
+    TransferObject transferObject7 = new TransferObject(7, '后羿', false);
+    TransferObject transferObject8 = new TransferObject(8, '亚瑟', false);
+    selectedList.add(transferObject7);
+    selectedList.add(transferObject8);
   }
 
   @override
