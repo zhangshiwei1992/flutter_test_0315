@@ -14,12 +14,23 @@ class TransferInfoPage extends StatefulWidget {
   List<TransferObject> rightList = [];
 
   /// 左侧 - 全量目标是否全选
-  bool leftListAllSelected = false;
+  bool leftListAllSelected;
 
   /// 右侧 - 已选中的项目是否全选
-  bool rightListAllSelected = false;
+  bool rightListAllSelected;
 
-  TransferInfoPage(this.leftList, this.rightList);
+  /// 左右框的宽度,高度
+  int width;
+  int height;
+
+  TransferInfoPage({
+    this.leftList,
+    this.rightList,
+    this.leftListAllSelected = false,
+    this.rightListAllSelected = false,
+    this.width = 300,
+    this.height = 600,
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -60,8 +71,8 @@ class TransferInfoState extends State<TransferInfoPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              width: ScreenAdapter.width(300),
-              height: ScreenAdapter.width(600),
+              width: ScreenAdapter.width(widget.width),
+              height: ScreenAdapter.width(widget.height),
               decoration: BoxDecoration(
                 color: Color(AppStyle.color_white),
                 border: Border.all(
@@ -92,7 +103,7 @@ class TransferInfoState extends State<TransferInfoPage> {
                     color: Color(AppStyle.color_black_00),
                   ),
                   Container(
-                    height: ScreenAdapter.height(550),
+                    height: ScreenAdapter.height(widget.height - 50),
                     child: ListView(
                       children: _leftList.map((_info) {
                         return _objectInfo(_info, 1);
@@ -115,8 +126,8 @@ class TransferInfoState extends State<TransferInfoPage> {
               ),
             ),
             Container(
-              width: ScreenAdapter.width(300),
-              height: ScreenAdapter.width(600),
+              width: ScreenAdapter.width(widget.width),
+              height: ScreenAdapter.width(widget.height),
               decoration: BoxDecoration(
                 color: Color(AppStyle.color_white),
                 border: Border.all(
@@ -147,7 +158,7 @@ class TransferInfoState extends State<TransferInfoPage> {
                     color: Color(AppStyle.color_black_00),
                   ),
                   Container(
-                    height: ScreenAdapter.height(550),
+                    height: ScreenAdapter.height(widget.height - 50),
                     child: ListView(
                       children: _rightList.map((_info) {
                         return _objectInfo(_info, 2);
@@ -202,10 +213,8 @@ class TransferInfoState extends State<TransferInfoPage> {
         List<TransferObject> _currentInfoList = [];
         if (1 == type) {
           _currentInfoList = _leftList;
-          _newRightList = _rightList;
         } else {
           _currentInfoList = _rightList;
-          _newLeftList = _leftList;
         }
 
         List<TransferObject> _newSelectedList = [];
@@ -221,8 +230,10 @@ class TransferInfoState extends State<TransferInfoPage> {
 
         if (1 == type) {
           _newRightList.addAll(_newSelectedList);
+          _newRightList.addAll(_rightList);
         } else {
           _newLeftList.addAll(_newSelectedList);
+          _newLeftList.addAll(_leftList);
         }
 
         // 刷新页面
@@ -248,37 +259,17 @@ class TransferInfoState extends State<TransferInfoPage> {
 
   /// 单个信息 - type: 1-左侧全部项目, 2-右侧选中项目
   Widget _objectInfo(TransferObject _transferObject, int type) {
-    return Container(
-      child: Row(
-        children: <Widget>[
-          _checkTransferObjectWidget(_transferObject, type),
-          Text(_transferObject.name),
-        ],
-      ),
-    );
-  }
-
-  // 单个选项的勾选框 - type: 1-左侧全部项目, 2-右侧选中项目
-  Widget _checkTransferObjectWidget(TransferObject _record, int type) {
     return GestureDetector(
       child: Container(
-        padding: EdgeInsets.only(
-          left: ScreenAdapter.width(
-            AppStyle.mp_5,
-          ),
-        ),
-        child: Icon(
-          _record.isSelected ? Icons.check_box : Icons.check_box_outline_blank,
-          size: ScreenAdapter.width(AppStyle.mp_40),
-          color: Color(
-            _record.isSelected
-                ? AppStyle.color_blue_7e
-                : AppStyle.color_grey_99,
-          ),
+        child: Row(
+          children: <Widget>[
+            _checkTransferObjectWidget(_transferObject, type),
+            Text(_transferObject.name),
+          ],
         ),
       ),
       onTap: () {
-        bool _isSelected = _record.isSelected;
+        bool _isSelected = _transferObject.isSelected;
         print('点击单个选项 - 此选中原本是否选中: ${_isSelected}');
 
         bool _newAllSelected = true;
@@ -309,7 +300,7 @@ class TransferInfoState extends State<TransferInfoPage> {
 
         // 刷新页面
         setState(() {
-          _record.isSelected = !_isSelected;
+          _transferObject.isSelected = !_isSelected;
           if (1 == type) {
             _leftListAllSelected = _newAllSelected;
           } else {
@@ -317,6 +308,24 @@ class TransferInfoState extends State<TransferInfoPage> {
           }
         });
       },
+    );
+  }
+
+  // 单个选项的勾选框 - type: 1-左侧全部项目, 2-右侧选中项目
+  Widget _checkTransferObjectWidget(TransferObject _record, int type) {
+    return Container(
+      padding: EdgeInsets.only(
+        left: ScreenAdapter.width(
+          AppStyle.mp_5,
+        ),
+      ),
+      child: Icon(
+        _record.isSelected ? Icons.check_box : Icons.check_box_outline_blank,
+        size: ScreenAdapter.width(AppStyle.mp_40),
+        color: Color(
+          _record.isSelected ? AppStyle.color_blue_7e : AppStyle.color_grey_99,
+        ),
+      ),
     );
   }
 
