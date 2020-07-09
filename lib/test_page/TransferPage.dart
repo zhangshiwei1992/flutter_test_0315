@@ -10,28 +10,7 @@ class TransferPage extends StatefulWidget {
 }
 
 class TransferPageState extends State<TransferPage> {
-  List<TransferObject> leftList = [
-    new TransferObject(1, '张三', false),
-    new TransferObject(2, '张三', false),
-    new TransferObject(3, '张三', false),
-    new TransferObject(4, '张三', false),
-    new TransferObject(5, '张三', false),
-    new TransferObject(6, '张三', false),
-    new TransferObject(7, '张三', false),
-    new TransferObject(8, '张三', false),
-    new TransferObject(9, '张三', false),
-    new TransferObject(10, '张三', false),
-    new TransferObject(11, '张三', false),
-    new TransferObject(12, '张三', false),
-    new TransferObject(13, '张三', false),
-    new TransferObject(14, '张三', false),
-    new TransferObject(15, '张三', false),
-    new TransferObject(16, '张三', false),
-    new TransferObject(17, '张三', false),
-    new TransferObject(18, '张三', false),
-    new TransferObject(19, '张三', false),
-    new TransferObject(20, '张三', false),
-  ];
+  List<TransferObject> leftList = [];
   List<TransferObject> rightList = [];
 
   @override
