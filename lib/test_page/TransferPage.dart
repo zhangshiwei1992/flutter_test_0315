@@ -1,9 +1,6 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 import 'component/Transfer.dart';
-import 'component/TransferObject.dart';
 
 class TransferPage extends StatefulWidget {
   @override

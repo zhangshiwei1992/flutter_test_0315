@@ -1,11 +1,8 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertest0315/constant/app_style.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
-import 'package:video_player/video_player.dart';
 
-import 'TransferObject.dart';
-
+/// 穿梭框
 class TransferInfoPage extends StatefulWidget {
   /// 左侧 - 全量集合
   List<TransferObject> leftList = [];
@@ -397,5 +394,20 @@ class TransferInfoState extends State<TransferInfoPage> {
   @override
   void dispose() {
     super.dispose();
+  }
+}
+
+class TransferObject {
+  int id;
+
+  String name;
+
+  /// 是否选中
+  bool isSelected;
+
+  TransferObject(int id, String name, bool isSelected) {
+    this.id = id;
+    this.name = name;
+    this.isSelected = isSelected;
   }
 }
