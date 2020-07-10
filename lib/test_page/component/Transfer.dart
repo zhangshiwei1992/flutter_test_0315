@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertest0315/constant/app_style.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 /// 穿梭框
 class TransferInfoPage extends StatefulWidget {
@@ -198,6 +199,7 @@ class TransferInfoState extends State<TransferInfoPage> {
       onTap: () {
         print('点击中间穿梭按钮 : ${type} , 是否可点击 : ${_buttonPower}');
         if (!_buttonPower) {
+          Fluttertoast.showToast(msg: '请先选择,再移动');
           return;
         }
 
