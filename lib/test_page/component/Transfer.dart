@@ -67,109 +67,85 @@ class TransferInfoState extends State<TransferInfoPage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              width: ScreenAdapter.width(widget.width),
-              height: ScreenAdapter.width(widget.height),
-              decoration: BoxDecoration(
-                color: Color(AppStyle.color_white),
-                border: Border.all(
-                  color: Color(AppStyle.color_black_00),
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    AppStyle.radius_5,
-                  ),
-                ),
-              ),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: ScreenAdapter.height(50),
-                    padding: EdgeInsets.all(
-                      ScreenAdapter.height(AppStyle.mp_5),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        allSelectedWidget(1),
-                        Text('共 ${_leftList.length} 项'),
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    color: Color(AppStyle.color_black_00),
-                  ),
-                  Container(
-                    height: ScreenAdapter.height(widget.height - 50),
-                    child: ListView(
-                      children: _leftList.map((_info) {
-                        return _objectInfo(_info, 1);
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(
-                ScreenAdapter.height(AppStyle.mp_5),
-              ),
-              child: Column(
-                children: <Widget>[
-                  _transferButtonWidget(1),
-                  _transferButtonWidget(2),
-                ],
-              ),
-            ),
-            Container(
-              width: ScreenAdapter.width(widget.width),
-              height: ScreenAdapter.width(widget.height),
-              decoration: BoxDecoration(
-                color: Color(AppStyle.color_white),
-                border: Border.all(
-                  color: Color(AppStyle.color_black_00),
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    AppStyle.radius_5,
-                  ),
-                ),
-              ),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: ScreenAdapter.height(50),
-                    padding: EdgeInsets.all(
-                      ScreenAdapter.height(AppStyle.mp_5),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        allSelectedWidget(2),
-                        Text('已选中 ${_rightList.length} 项'),
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    color: Color(AppStyle.color_black_00),
-                  ),
-                  Container(
-                    height: ScreenAdapter.height(widget.height - 50),
-                    child: ListView(
-                      children: _rightList.map((_info) {
-                        return _objectInfo(_info, 2);
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            _leftRightWidget(1),
+            _centerButtonWidget(),
+            _leftRightWidget(2),
           ],
         ),
       ),
     );
     return scaffold;
+  }
+
+  /// 左侧全量项目,右侧选中项目: 1-左侧, 2-右侧
+  Widget _leftRightWidget(int type) {
+    List<TransferObject> _infoList = [];
+    if (1 == type) {
+      _infoList = _leftList;
+    } else {
+      _infoList = _rightList;
+    }
+
+    return Container(
+      width: ScreenAdapter.width(widget.width),
+      height: ScreenAdapter.width(widget.height),
+      decoration: BoxDecoration(
+        color: Color(AppStyle.color_white),
+        border: Border.all(
+          color: Color(AppStyle.color_black_00),
+          width: 1,
+        ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppStyle.radius_5),
+        ),
+      ),
+      padding: EdgeInsets.all(
+        ScreenAdapter.height(AppStyle.mp_10),
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            child: Row(
+              children: <Widget>[
+                allSelectedWidget(type),
+                Text('共 ${_infoList.length} 项'),
+              ],
+            ),
+          ),
+          Divider(
+            height: 8,
+            color: Color(AppStyle.color_black_00),
+          ),
+          Container(
+            height: ScreenAdapter.height(widget.height - 50),
+            child: ListView(
+              children: _infoList.map((_info) {
+                return _objectInfo(_info, type);
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// 中间穿梭按钮
+  Widget _centerButtonWidget() {
+    return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.only(
+        top: ScreenAdapter.height(AppStyle.mp_60),
+        left: ScreenAdapter.height(AppStyle.mp_5),
+        right: ScreenAdapter.height(AppStyle.mp_5),
+        bottom: ScreenAdapter.height(AppStyle.mp_5),
+      ),
+      child: Column(
+        children: <Widget>[
+          _transferButtonWidget(1),
+          _transferButtonWidget(2),
+        ],
+      ),
+    );
   }
 
   /// 中间穿梭框按钮 - type: 1-左侧选中项目向右, 2-右侧选中项目向左
@@ -180,7 +156,7 @@ class TransferInfoState extends State<TransferInfoPage> {
           ScreenAdapter.width(AppStyle.mp_5),
         ),
         margin: EdgeInsets.all(
-          ScreenAdapter.width(AppStyle.mp_5),
+          ScreenAdapter.width(AppStyle.mp_20),
         ),
         decoration: BoxDecoration(
           border: Border.all(
@@ -257,13 +233,11 @@ class TransferInfoState extends State<TransferInfoPage> {
   /// 单个信息 - type: 1-左侧全部项目, 2-右侧选中项目
   Widget _objectInfo(TransferObject _transferObject, int type) {
     return GestureDetector(
-      child: Container(
-        child: Row(
-          children: <Widget>[
-            _checkTransferObjectWidget(_transferObject, type),
-            Text(_transferObject.name),
-          ],
-        ),
+      child: Row(
+        children: <Widget>[
+          _checkTransferObjectWidget(_transferObject, type),
+          Text(_transferObject.name),
+        ],
       ),
       onTap: () {
         bool _isSelected = _transferObject.isSelected;
@@ -311,11 +285,6 @@ class TransferInfoState extends State<TransferInfoPage> {
   // 单个选项的勾选框 - type: 1-左侧全部项目, 2-右侧选中项目
   Widget _checkTransferObjectWidget(TransferObject _record, int type) {
     return Container(
-      padding: EdgeInsets.only(
-        left: ScreenAdapter.width(
-          AppStyle.mp_5,
-        ),
-      ),
       child: Icon(
         _record.isSelected ? Icons.check_box : Icons.check_box_outline_blank,
         size: ScreenAdapter.width(AppStyle.mp_40),
@@ -354,6 +323,9 @@ class TransferInfoState extends State<TransferInfoPage> {
 
     return GestureDetector(
       child: Container(
+        padding: EdgeInsets.only(
+          right: ScreenAdapter.width(AppStyle.mp_5),
+        ),
         child: Icon(
           _isAllSelected ? Icons.check_box : Icons.check_box_outline_blank,
           size: ScreenAdapter.width(40),
@@ -368,11 +340,11 @@ class TransferInfoState extends State<TransferInfoPage> {
 
         for (TransferObject info in _currentInfoList) {
           if (!_isAllSelected) {
-            print('已选中 - 修改是否全选 - 是是是是是是');
+            /// 已选中 - 修改是否全选 - 是
             info.isSelected = true;
             _newAllSelected = true;
           } else {
-            print('已选中 - 修改是否全选 - 否否否否否否');
+            /// 已选中 - 修改是否全选 - 否
             info.isSelected = false;
           }
         }
@@ -397,9 +369,9 @@ class TransferInfoState extends State<TransferInfoPage> {
   }
 }
 
+/// 单个项目选项对象
 class TransferObject {
   int id;
-
   String name;
 
   /// 是否选中
