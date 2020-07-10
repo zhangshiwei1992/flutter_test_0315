@@ -47,6 +47,7 @@ class AppStyle {
   static const mp_140 = 140;
   static const mp_80 = 80;
   static const mp_60 = 60;
+  static const mp_50 = 50;
   static const mp_40 = 40;
   static const mp_30 = 30;
   static const mp_25 = 25;

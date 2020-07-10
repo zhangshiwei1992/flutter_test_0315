@@ -61,6 +61,7 @@ class TransferInfoState extends State<TransferInfoPage> {
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
       body: Container(
+        color: Colors.white,
         padding: EdgeInsets.all(
           ScreenAdapter.height(AppStyle.mp_10),
         ),
@@ -90,7 +91,6 @@ class TransferInfoState extends State<TransferInfoPage> {
       width: ScreenAdapter.width(widget.width),
       height: ScreenAdapter.width(widget.height),
       decoration: BoxDecoration(
-        color: Color(AppStyle.color_white),
         border: Border.all(
           color: Color(AppStyle.color_black_00),
           width: 1,
@@ -150,15 +150,34 @@ class TransferInfoState extends State<TransferInfoPage> {
 
   /// 中间穿梭框按钮 - type: 1-左侧选中项目向右, 2-右侧选中项目向左
   Widget _transferButtonWidget(int type) {
+    List<TransferObject> _infoList = [];
+    if (1 == type) {
+      _infoList = _leftList;
+    } else {
+      _infoList = _rightList;
+    }
+
+    bool _buttonPower = false;
+    for (TransferObject info in _infoList) {
+      if (info.isSelected) {
+        _buttonPower = true;
+        break;
+      }
+    }
+
     return GestureDetector(
       child: Container(
-        padding: EdgeInsets.all(
-          ScreenAdapter.width(AppStyle.mp_5),
+        padding: EdgeInsets.only(
+          top: ScreenAdapter.width(AppStyle.mp_5),
+          bottom: ScreenAdapter.width(AppStyle.mp_5),
+          left: ScreenAdapter.width(AppStyle.mp_10),
+          right: ScreenAdapter.width(AppStyle.mp_10),
         ),
         margin: EdgeInsets.all(
           ScreenAdapter.width(AppStyle.mp_20),
         ),
         decoration: BoxDecoration(
+          color: _buttonPower ? Colors.white : Color(AppStyle.color_grey_dd),
           border: Border.all(
             color: Color(AppStyle.color_black_00),
             width: 1,
@@ -177,23 +196,20 @@ class TransferInfoState extends State<TransferInfoPage> {
         ),
       ),
       onTap: () {
-        print('点击中间穿梭按钮 : ${type}');
+        print('点击中间穿梭按钮 : ${type} , 是否可点击 : ${_buttonPower}');
+        if (!_buttonPower) {
+          return;
+        }
 
-        /// 新的左侧项目 , 新的右侧项目
+        /// 新的左侧项目, 新的右侧项目
         List<TransferObject> _newLeftList = [];
         List<TransferObject> _newRightList = [];
 
-        List<TransferObject> _currentInfoList = [];
-        if (1 == type) {
-          _currentInfoList = _leftList;
-        } else {
-          _currentInfoList = _rightList;
-        }
-
         List<TransferObject> _newSelectedList = [];
         List<TransferObject> _newNoeSelectedList = [];
-        for (TransferObject info in _currentInfoList) {
+        for (TransferObject info in _infoList) {
           if (info.isSelected) {
+            /// 移动之后, 不再是选中状态
             info.isSelected = false;
             _newSelectedList.add(info);
           } else {
