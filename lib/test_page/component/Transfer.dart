@@ -90,7 +90,8 @@ class TransferInfoState extends State<TransferInfoPage> {
 
     return Container(
       width: ScreenAdapter.width(widget.width),
-      height: ScreenAdapter.width(widget.height),
+      // 手机端app上,listView最下面有一部分本遮挡了
+      height: ScreenAdapter.width(widget.height + 150),
       decoration: BoxDecoration(
         border: Border.all(
           color: Color(AppStyle.color_black_00),
