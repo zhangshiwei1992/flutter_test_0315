@@ -253,6 +253,18 @@ class HomePageWidget extends State<HomePage> {
                   Navigator.pushNamed(context, '/TransferPage');
                 },
               ),
+              RaisedButton(
+                child: Text('动态按钮'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/AnimationButtonPage');
+                },
+              ),
+              RaisedButton(
+                child: Text('背景齿轮滚动'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/AnimationDemoPage');
+                },
+              ),
             ],
           ),
         ],
