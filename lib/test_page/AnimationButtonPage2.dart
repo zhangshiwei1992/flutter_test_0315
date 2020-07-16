@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertest0315/constant/app_style.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
@@ -37,16 +38,7 @@ class AnimationButtonPage2State extends State<AnimationButtonPage2> {
   List<Widget> _widgetList() {
     List<Widget> _widgetList = [];
     for (int j = 0; j < 100; j++) {
-      if (3 == j) {
-        _widgetList.add(_buttonAndHandWidgetStack());
-      }
-      if (10 == j) {
-        _widgetList.add(_buttonAndHandWidgetStack());
-      }
-      if (20 == j) {
-        _widgetList.add(_buttonAndHandWidgetStack());
-      }
-      if (30 == j) {
+      if (0 == j % 10) {
         _widgetList.add(_buttonAndHandWidgetStack());
       }
       _widgetList.add(Text(
@@ -102,8 +94,6 @@ class AnimationButtonPage2State extends State<AnimationButtonPage2> {
       ),
     );
   }
-
-  /// 手指图片
 
   @override
   void dispose() {
