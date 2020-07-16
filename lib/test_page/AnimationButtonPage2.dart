@@ -5,6 +5,7 @@ import 'package:fluttertest0315/constant/app_style.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
 
 import 'animation/HandlerWidget.dart';
+import 'animation/HandlerWidget2.dart';
 
 /// 使用动画实现手指戳按钮的动画 - 不需要重复加载
 class AnimationButtonPage2 extends StatefulWidget {
@@ -36,7 +37,16 @@ class AnimationButtonPage2State extends State<AnimationButtonPage2> {
   List<Widget> _widgetList() {
     List<Widget> _widgetList = [];
     for (int j = 0; j < 100; j++) {
+      if (3 == j) {
+        _widgetList.add(_buttonAndHandWidgetStack());
+      }
       if (10 == j) {
+        _widgetList.add(_buttonAndHandWidgetStack());
+      }
+      if (20 == j) {
+        _widgetList.add(_buttonAndHandWidgetStack());
+      }
+      if (30 == j) {
         _widgetList.add(_buttonAndHandWidgetStack());
       }
       _widgetList.add(Text(
@@ -58,7 +68,7 @@ class AnimationButtonPage2State extends State<AnimationButtonPage2> {
           _buttonWidget(),
 
           /// 手指图片
-          HandWidget(),
+          HandWidget2(),
         ],
       ),
     );
