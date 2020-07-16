@@ -254,7 +254,7 @@ class HomePageWidget extends State<HomePage> {
                 },
               ),
               RaisedButton(
-                child: Text('动态按钮'),
+                child: Text('动态手指戳按钮-定时器'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/AnimationButtonPage');
                 },
@@ -263,6 +263,18 @@ class HomePageWidget extends State<HomePage> {
                 child: Text('背景齿轮滚动'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/AnimationDemoPage');
+                },
+              ),
+              RaisedButton(
+                child: Text('动画测试1'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/AnimatedLogo');
+                },
+              ),
+              RaisedButton(
+                child: Text('动态手指戳按钮2-动画'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/AnimationButtonPage2');
                 },
               ),
             ],

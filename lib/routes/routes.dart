@@ -37,10 +37,12 @@ import 'package:fluttertest0315/test_page/VehicleBrandPage.dart';
 import 'package:fluttertest0315/test_page/VehicleVendorPage.dart';
 import 'package:fluttertest0315/test_page/WebViewPage.dart';
 import 'package:fluttertest0315/test_page/animation/AnimationDemo.dart';
+import 'package:fluttertest0315/test_page/animationtest/AnimatedLogo.dart';
 import 'package:fluttertest0315/tree/TreeMenuPage.dart';
 import 'package:fluttertest0315/test_page/VideoPage.dart';
 import 'package:fluttertest0315/test_page/TransferPage.dart';
 import 'package:fluttertest0315/test_page/AnimationButtonPage.dart';
+import 'package:fluttertest0315/test_page/AnimationButtonPage2.dart';
 
 final routes = {
   "/": (context) => FirstPage(),
@@ -91,6 +93,8 @@ final routes = {
   '/TransferPage': (context) => TransferPage(),
   '/AnimationButtonPage': (context) => AnimationButtonPage(),
   '/AnimationDemoPage': (context) => AnimationDemoPage(),
+  '/AnimatedLogo': (context) => AnimatedLogo(),
+  '/AnimationButtonPage2': (context) => AnimationButtonPage2(),
 };
 
 var myOnGenerateRoute = (RouteSettings settings) {

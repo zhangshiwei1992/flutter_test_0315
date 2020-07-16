@@ -4,23 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:fluttertest0315/constant/app_style.dart';
 import 'package:fluttertest0315/utils/ScreenAdaper.dart';
 
-/// 使用定时器实现手指戳按钮的动画 - 要重复加载 - 不取
-class AnimationButtonPage extends StatefulWidget {
+import 'animation/HandlerWidget.dart';
+
+/// 使用动画实现手指戳按钮的动画 - 不需要重复加载
+class AnimationButtonPage2 extends StatefulWidget {
   @override
-  AnimationButtonPageState createState() => new AnimationButtonPageState();
+  AnimationButtonPage2State createState() => new AnimationButtonPage2State();
 }
 
-class AnimationButtonPageState extends State<AnimationButtonPage> {
-  int count = 0;
-
+class AnimationButtonPage2State extends State<AnimationButtonPage2> {
   @override
   void initState() {
     super.initState();
-    countdown();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(
+        'AnimationButtonPage2State - build --------  加载 --------------------');
     return Scaffold(
       appBar: AppBar(
         title: Text('动态手指'),
@@ -57,7 +58,7 @@ class AnimationButtonPageState extends State<AnimationButtonPage> {
           _buttonWidget(),
 
           /// 手指图片
-          _handWidget(),
+          HandWidget(),
         ],
       ),
     );
@@ -93,43 +94,6 @@ class AnimationButtonPageState extends State<AnimationButtonPage> {
   }
 
   /// 手指图片
-  Widget _handWidget() {
-    /// 屏幕的一半宽度
-    double _halfScreenWidth = ScreenAdapter.getScreenWidth() / 2;
-
-    /// count是否为奇数
-    bool _isOddNumber = 1 == count % 2 ? true : false;
-
-    /// Transform.translate接收一个offset参数，可以在绘制时沿x、y轴对子组件平移指定的距离
-    return Transform.translate(
-      // 默认原点为左上角，第一个参数: 正数向右平移; 第二个参数: 正数向下平移
-      offset: Offset(
-        // 左右移动的范围
-        _isOddNumber ? _halfScreenWidth + 80 : _halfScreenWidth + 90,
-        // 上下移动的范围
-        _isOddNumber ? 50.0 : 60.0,
-      ),
-      child: Image.network(
-          'https://image.sdbao.com/sems/banner/iconImages/hand.png!webp'),
-    );
-  }
-
-  void countdown() {
-    print("start");
-
-    /// 1秒执行一次
-    Timer.periodic(Duration(milliseconds: 500), (timer) {
-      print('------手指图片位置移动------');
-      // 30秒后关闭
-      if (timer.tick == 30) {
-        timer.cancel();
-        print("finish");
-      }
-      setState(() {
-        count++;
-      });
-    });
-  }
 
   @override
   void dispose() {
