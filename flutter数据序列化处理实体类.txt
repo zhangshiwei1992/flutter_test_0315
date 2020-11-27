@@ -1,0 +1,108 @@
+官方文档
+https://flutter.io/docs/development/data-and-backend/json
+
+使用dart:convert包序列化json
+jsonDecode()返回类型为Map<String, dynamic>意味着，在运行之前不清楚数据类型，
+单独使用导致无法使用大多数静态语言类型的功能：类型安全性编译异常检查。代码会更容易出错。
+
+在模型中进行序列化处理，解决上述问题带来的麻烦
+class User {
+  final String name;
+  final String email;
+
+  User(this.name, this.email);
+
+  User.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        email = json['email'];
+
+  Map<String, dynamic> toJson() =>
+    {
+      'name': name,
+      'email': email,
+    };
+}
+对于上述模型user，可以直接使用dart:convert中的String  jsonString =  jsonEncode(user)  ，不需要调用user.tojson()方法。
+使用说明如下：
+String  jsonString =  {
+  "name": "John Smith",
+  "email": "john@example.com"
+}
+Map userMap = jsonDecode(jsonString);
+var user = new User.fromJson(userMap);
+
+print('Howdy, ${user.name}!');
+print('We sent the verification link to ${user.email}.');
+
+@JsonSerializable()
+引入必要的packages【pubspec.yaml】中引入相关包 【flutter  packages get】命令进行更新
+dependencies:
+  # Your other regular dependencies here
+  json_annotation: ^2.0.0
+
+dev_dependencies:
+  # Your other dev_dependencies here
+  build_runner: ^1.0.0
+  json_serializable: ^2.0.0
+项目根目录中
+【flutter packages pub run build_runner build】一次性自动生成
+【flutter packages pub run build_runner watch】监听，有变化需要自动生成，触发生成
+
+案例说明：
+1、准备mockdata.dart其中是模型对应的json数据
+2、准备模型class - data.dart
+3、准备文件 data.g.dart  -- 必须提前创建文件
+4、对于Class  -  dart.dart中引入 import 'package:json_annotation/json_annotation.dart'; 
+	并对于class  Data增加注解 @JsonSerializable() 。 另外增加 part 'data.g.dart'; 
+5、对于文件 data.g.dart中增加 part of 'data.dart';
+6、执行命令flutter packages pub run build_runner build -- 文件【data.g.dart】有更新，
+	在过程中如果出现冲突报错，可以使用命令：flutter packages pub run build_runner build user.dart --delete-conflicting-outputs 
+7、在文件【data.dart】中增加两个方法
+8、测试验证  
+mocktest.dart
+195B
+
+test.dart
+417B
+
+test.g.dart
+796B
+
+复杂混合类型数据序列化
+数据结构中包含【list】类型DTO格式序列化过程：
+模型中某个字段为特殊类型【另一个模型，复杂数据类型如list】，则需要在fromJson的时候嵌套处理。
+
+案例：
+import 'package:demo/biz/product/dto/MerchantInfo.dart';
+class MerchantAndCityDto {
+  int channelId;
+  String userId;
+  String city;
+  List<MerchantInfo> merchantInfoList;
+  // 构造器
+  MerchantAndCityDto({this.channelId,this.userId,this.city,this.merchantInfoList});
+  // json转dto格式，尤其注意其中【list】类型的数据处理
+  factory MerchantAndCityDto.fromJson(Map<String, dynamic> json) {
+    // list类型数据的处理
+    var list = json['merchantDtoList'] as List;
+    List<MerchantInfo> merchantInfoList = [];
+    if(null != list && list.isNotEmpty){
+      merchantInfoList = list.map((record)=> MerchantInfo.fromJson(record)).toList();
+    }
+    print('merchantInfoList:${merchantInfoList[0].toJson()}');
+
+    return MerchantAndCityDto(
+        channelId: json['channelId'],
+        userId: json['userId'],
+        city: json['city'],
+        merchantInfoList: merchantInfoList
+    );
+  }
+  // dto转json格式
+  Map<String, dynamic> toJson() =>{
+    'channelId': channelId,
+    'userId': userId,
+    'city':city,
+    'merchantInfoList':merchantInfoList
+  };
+}
